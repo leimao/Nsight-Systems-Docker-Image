@@ -73,6 +73,11 @@ int main(int argc, char** argv)
 
     for (int i = 0; i < numStreams; ++i)
     {
+        CHECK_CUDA_ERROR(cudaStreamSynchronize(streams[i]));
+    }
+
+    for (int i = 0; i < numStreams; ++i)
+    {
         CHECK_CUDA_ERROR(cudaStreamDestroy(streams[i]));
     }
 
