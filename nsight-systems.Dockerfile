@@ -31,7 +31,7 @@ RUN apt-get update -y && \
         xkb-data && \
     apt-get clean
 
-# Nsisght Systems and Nsight Compute UI Dependencies
+# Nsight Systems and Nsight Compute UI Dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         libgl1-mesa-glx \
