@@ -25,17 +25,12 @@ RUN apt-get update -y && \
         libxrandr2 \
         libxrender1 \
         libxtst6 \
+        libgl1-mesa-glx \
+        libxkbfile-dev \
         openssh-client \
         wget \
         xcb \
         xkb-data && \
-    apt-get clean
-
-# Nsight Systems and Nsight Compute UI Dependencies
-RUN apt-get update -y && \
-    apt-get install -y --no-install-recommends \
-        libgl1-mesa-glx \
-        libxkbfile-dev && \
     apt-get clean
 
 RUN cd /tmp && \
