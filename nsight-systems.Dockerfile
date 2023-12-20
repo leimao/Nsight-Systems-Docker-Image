@@ -1,8 +1,5 @@
 FROM nvcr.io/nvidia/cuda:12.0.1-devel-ubuntu22.04
 
-ARG GIT_USER_EMAIL="dukeleimao@gmail.com"
-ARG GIT_USER_NAME="Lei Mao"
-
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -y && \
@@ -34,10 +31,12 @@ RUN apt-get update -y && \
         xkb-data && \
     apt-get clean
 
+# Nsisght Systems and Nsight Compute UI Dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         libgl1-mesa-glx \
-        libxkbfile-dev
+        libxkbfile-dev && \
+    apt-get clean
 
 RUN cd /tmp && \
     wget https://developer.nvidia.com/downloads/assets/tools/secure/nsight-systems/2023_4_1_97/nsight-systems-2023.4.1_2023.4.1.97-1_amd64.deb && \
