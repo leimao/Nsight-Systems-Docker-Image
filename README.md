@@ -11,7 +11,7 @@ This is a portable Nsight Systems Docker image which allows the user to profile 
 To build the Docker image, please run the following command.
 
 ```bash
-$ docker build -f nsight-systems.Dockerfile --no-cache --tag=nsight-systems:11.4 .
+$ docker build -f nsight-systems.Dockerfile --no-cache --tag=nsight-systems:2023.4 .
 ```
 
 ### Run Docker Container
@@ -20,7 +20,7 @@ To run the Docker container, please run the following command.
 
 ```bash
 $ xhost +
-$ docker run -it --rm --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_ADMIN --security-opt seccomp=unconfined -v $(pwd):/mnt --network=host nsight-systems:11.4
+$ docker run -it --rm --gpus all -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --cap-add=SYS_ADMIN --security-opt seccomp=unconfined -v $(pwd):/mnt --network=host nsight-systems:2023.4
 $ xhost -
 ```
 

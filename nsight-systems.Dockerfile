@@ -1,11 +1,10 @@
-FROM nvcr.io/nvidia/cudagl:11.4.2-devel-ubuntu20.04
+FROM nvcr.io/nvidia/cuda:12.0.1-devel-ubuntu22.04
 
 ARG GIT_USER_EMAIL="dukeleimao@gmail.com"
 ARG GIT_USER_NAME="Lei Mao"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-# Install package dependencies
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
         apt-transport-https \
@@ -36,6 +35,13 @@ RUN apt-get update -y && \
     apt-get clean
 
 RUN apt-get update -y && \
-    apt-get install -y qt5-default cuda-nsight-systems-11-4
+    apt-get install -y --no-install-recommends \
+        libgl1-mesa-glx \
+        libxkbfile-dev
+
+RUN cd /tmp && \
+    wget https://developer.nvidia.com/downloads/assets/tools/secure/nsight-systems/2023_4_1_97/nsight-systems-2023.4.1_2023.4.1.97-1_amd64.deb && \
+    apt-get install -y ./nsight-systems-2023.4.1_2023.4.1.97-1_amd64.deb && \
+    rm -rf /tmp/*
 
 # CMD ["nsys-ui"]
