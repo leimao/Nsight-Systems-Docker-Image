@@ -37,3 +37,9 @@ $ nvcc async_pinned_memory.cu -o async_pinned_memory
 ```bash
 $ nsys-ui
 ```
+
+### Run Nsight Compute
+
+```bash
+$ ncu-ui
+```
